@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+
+  .my-carousel-button {
+    color: blue;
+  }
+}
+
+@mixin typography($theme) {
+  .my-carousel {
+    font-family: serif;
+  }
+}

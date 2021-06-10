@@ -3,22 +3,24 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 30px;
+    align-items: center;
+    //height: 30px;
   }
 
-  #movie-name {
-    flex: 4 0 auto;
+  mat-form-field {
+    flex: 3 0 auto;
   }
 
-  .form-control.ng-dirty.ng-invalid {
-    border: 3px solid #a94442;
-  }
-
+  //.form-control.ng-dirty.ng-invalid {
+  //  border: 3px solid #a94442;
+  //}
+  //
   .separator {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
   }
 
   .search-btn {
     flex: 1 0 auto;
+    height: 80%;
   }
 }

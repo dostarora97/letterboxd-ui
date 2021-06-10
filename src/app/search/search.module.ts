@@ -6,6 +6,9 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -20,7 +23,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CommonModule,
     MatIconModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class SearchModule { }

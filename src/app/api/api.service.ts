@@ -15,11 +15,11 @@ export class ApiService {
   private baseUrl = "https://api.themoviedb.org/3";
   private API_KEY = "a69a2253732c52ca0ccd083a0c30fbf4";
   private isConfigurationLoaded = false;
-  private configuration: ConfigurationResponse | undefined;
+  private configuration!: ConfigurationResponse;
 
   constructor(private http: HttpClient) {}
 
-  getConfiguration(): Observable<ConfigurationResponse | undefined> {
+  getConfiguration(): Observable<ConfigurationResponse> {
     if (this.isConfigurationLoaded) {
       return of(this.configuration);
     } else {

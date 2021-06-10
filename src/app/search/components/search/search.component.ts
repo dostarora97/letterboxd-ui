@@ -13,8 +13,8 @@ import { finalize } from 'rxjs/operators';
 export class SearchComponent implements OnInit {
   isApiIinProgress = false;
   isApiError = false;
-  hasNoResults = false;
-  configuration: ConfigurationResponse | undefined;
+  // hasNoResults = false;
+  configuration!: ConfigurationResponse;
   searchMovieResponse: SearchMovieResponse | undefined;
 
   constructor(
@@ -39,11 +39,12 @@ export class SearchComponent implements OnInit {
   }
 
   onComplete(searchMovieResponse: SearchMovieResponse): void {
-    if (searchMovieResponse.results.length == 0) {
-      this.hasNoResults = true;
-    } else {
-      this.hasNoResults = false
-      this.searchMovieResponse = searchMovieResponse;
-    }
+    this.searchMovieResponse = searchMovieResponse;
+    // if (searchMovieResponse.results.length == 0) {
+    //   this.hasNoResults = true;
+    // } else {
+    //   this.hasNoResults = false
+    //   this.searchMovieResponse = searchMovieResponse;
+    // }
   }
 }

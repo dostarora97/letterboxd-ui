@@ -14,12 +14,14 @@ export class SearchResultsComponent implements OnInit {
 
   @Input()
   set movies(movies: Movie[]) {
+    this.movieSelections = [];
     movies.forEach(movie => {
       this.movieSelections.push({...movie, isSelected: false})
-    })
+    });
+    console.log(movies, this.movieSelections);
   }
 
-  @Input() configuration: ConfigurationResponse | undefined;
+  @Input() configuration!: ConfigurationResponse;
   // @Input() sortBy: SortType = SortType.POPULARITY;
 
   posterSize = PosterSize;

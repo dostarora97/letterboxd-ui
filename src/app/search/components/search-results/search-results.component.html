@@ -1,4 +1,4 @@
-<div *ngIf="movieSelections && configuration" class="scrolling-wrapper">
+<div *ngIf="movieSelections.length > 0 && configuration; else emptySelection" class="scrolling-wrapper">
   <section *ngFor="let movie of movieSelections" class="card" (click)="toggleMovieSelection(movie)" [ngClass]="{'selected': movie.isSelected}">
     <article id="{{movie.id}}">
       <div class="card-header">
@@ -26,3 +26,7 @@
     </article>
   </section>
 </div>
+
+<ng-template #emptySelection>
+  <div class="no-results"><span>No results found</span></div>
+</ng-template>

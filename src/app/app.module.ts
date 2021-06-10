@@ -5,11 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatIconModule } from '@angular/material/icon';
 
-import { ReactiveFormsModule } from '@angular/forms';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
   declarations: [
@@ -20,10 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    DashboardModule,
-    MatProgressSpinnerModule
+    SearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

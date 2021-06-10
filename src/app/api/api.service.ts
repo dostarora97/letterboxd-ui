@@ -5,7 +5,7 @@ import { SearchMovieResponse } from './models/search/movie/search-movie.response
 import { ApiEndpoint } from './models/api-endpoint.enum';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ConfigurationResponse } from './models/configuration/configuration.response';
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,7 @@ export class ApiService {
   private isConfigurationLoaded = false;
   private configuration: ConfigurationResponse | undefined;
 
-  constructor(private http: HttpClient) {
-    this.getConfiguration().subscribe();
-  }
+  constructor(private http: HttpClient) {}
 
   getConfiguration(): Observable<ConfigurationResponse | undefined> {
     if (this.isConfigurationLoaded) {

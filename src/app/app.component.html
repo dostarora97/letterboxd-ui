@@ -1,17 +1,5 @@
 <router-outlet></router-outlet>
 
-<lb-search-form></lb-search-form>
-
-<!--<div class="search" *ngIf="!isApiIinProgress; else spinner">-->
-<!--  <div class="search-box"></div>-->
-<!--  <div class="search-results">-->
-<!--    <letterboxd-search *ngIf="searchMovieResponse"-->
-<!--            [configuration]="configuration"-->
-<!--            [movies]="searchMovieResponse.results">-->
-<!--    </letterboxd-search>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<ng-template #spinner>-->
-<!--  <mat-spinner [strokeWidth]="8" [diameter]="50"></mat-spinner>-->
-<!--</ng-template>-->
+<div class="container">
+  <lb-search></lb-search>
+</div>

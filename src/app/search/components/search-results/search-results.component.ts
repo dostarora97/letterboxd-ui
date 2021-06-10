@@ -6,11 +6,11 @@ import { PosterSize } from '../../../api/models/configuration/poster-size.enum';
 import { SortType } from './models/sort-type.enum';
 
 @Component({
-  selector: 'letterboxd-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'lb-search-results',
+  templateUrl: './search-results.component.html',
+  styleUrls: ['./search-results.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchResultsComponent implements OnInit {
 
   @Input()
   set movies(movies: Movie[]) {

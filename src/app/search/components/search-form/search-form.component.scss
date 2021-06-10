@@ -1,0 +1,24 @@
+:host {
+  .movie-name-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+  }
+
+  #movie-name {
+    flex: 4 0 auto;
+  }
+
+  .form-control.ng-dirty.ng-invalid {
+    border: 3px solid #a94442;
+  }
+
+  .separator {
+    flex: 1 0 auto;
+  }
+
+  .search-btn {
+    flex: 1 0 auto;
+  }
+}

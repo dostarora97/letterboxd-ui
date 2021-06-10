@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'lb-search-form',
@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFormComponent implements OnInit {
   movie = "";
+  @Output() movieSearch = new EventEmitter<String>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
+  onSubmit() {
+    this.movieSearch.emit(this.movie);
+  }
 }

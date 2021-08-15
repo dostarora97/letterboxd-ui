@@ -1,41 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { finalize, takeUntil } from 'rxjs/operators';
 import { ConfigurationResponse } from '../../../api/models/configuration/configuration.response';
 import { SearchMovieResponse } from '../../../api/models/search/movie/search-movie.response';
 import { SearchMovieRequest } from '../../../api/models/search/movie/search-movie.request';
 import { ApiService } from '../../../api/api.service';
-import { finalize } from 'rxjs/operators';
+import { BaseComponent } from '../base-component/base.component';
 
 @Component({
   selector: 'lb-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
-  isApiIinProgress = false;
-  isApiError = false;
+export class SearchComponent extends BaseComponent implements OnInit {
+  isApiIinProgress$ = new BehaviorSubject<boolean>(false);
+  isApiError$ = new BehaviorSubject<boolean>(false);
   // hasNoResults = false;
   configuration!: ConfigurationResponse;
   searchMovieResponse: SearchMovieResponse | undefined;
 
   constructor(
     private apiService: ApiService
-  ) { }
+  ) {
+    super();
+    this.isApiError$.subscribe(() => this.isApiIinProgress$.next(false));
+  }
 
   ngOnInit(): void {
-    this.apiService.getConfiguration().subscribe(
+    this.apiService.getConfiguration()
+      .pipe(takeUntil(this.isDestroyed$))
+      .subscribe(
       (configuration) => {this.configuration = configuration});
   }
 
   search($event: String): void {
-    this.isApiIinProgress = true;
-    let searchRequest = new SearchMovieRequest();
-    searchRequest.query = String($event);
+    this.isApiIinProgress$.next(true);
+    let searchRequest = new SearchMovieRequest({query: String($event)});
     this.apiService.searchMovie(searchRequest)
-      .pipe(finalize(() => this.isApiIinProgress = false))
+      .pipe(
+        finalize(() => this.isApiIinProgress$.next(false)),
+        takeUntil(this.isDestroyed$))
       .subscribe(
-        (response: SearchMovieResponse) => this.onComplete(response),
-        (error: any) => { this.isApiError = true; }
-      );
+        (response: SearchMovieResponse) => {
+          this.onComplete(response)
+        },
+        (error: any) => {
+          console.error(error);
+          this.isApiError$.next(true);
+        });
   }
 
   onComplete(searchMovieResponse: SearchMovieResponse): void {

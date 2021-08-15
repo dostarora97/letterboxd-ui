@@ -6,4 +6,10 @@ export class SearchMovieRequest {
   region?: string;
   year?: number;
   primary_release_year?: number;
+
+  constructor(request?: SearchMovieRequest) {
+    if (!!request) {
+      Object.assign(this, request);
+    }
+  }
 }

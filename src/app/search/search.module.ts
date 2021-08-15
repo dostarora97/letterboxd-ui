@@ -9,11 +9,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { BaseComponent } from './components/base-component/base.component';
 
 
 
 @NgModule({
-  declarations: [ SearchResultsComponent, SearchFormComponent, SearchComponent ],
+  declarations: [ SearchResultsComponent, SearchFormComponent, SearchComponent, BaseComponent ],
   exports: [
     SearchResultsComponent,
     SearchFormComponent,

@@ -5,7 +5,7 @@
         <lb-search-form (movieSearch)="search($event)"></lb-search-form>
       </div>
       <div class="search-results">
-        <ng-container *ngIf="!isApiIinProgress; else spinner">
+        <ng-container *ngIf="!(isApiIinProgress$ | async); else spinner">
           <lb-search-results
                   *ngIf="searchMovieResponse"
                   [configuration]="configuration"

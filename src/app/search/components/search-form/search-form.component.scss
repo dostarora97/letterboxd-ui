@@ -1,0 +1,26 @@
+:host {
+  .movie-name-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    //height: 30px;
+  }
+
+  mat-form-field {
+    flex: 3 0 auto;
+  }
+
+  //.form-control.ng-dirty.ng-invalid {
+  //  border: 3px solid #a94442;
+  //}
+  //
+  .separator {
+    flex: 1 1 auto;
+  }
+
+  .search-btn {
+    flex: 1 0 auto;
+    height: 80%;
+  }
+}

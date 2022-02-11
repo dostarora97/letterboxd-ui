@@ -1,0 +1,23 @@
+<mat-tab-group [color]="'accent'" [backgroundColor]="'primary'" animationDuration="225ms">
+  <mat-tab label="Single Search">
+    <div class="search">
+      <div class="search-box">
+        <lb-search-form (movieSearch)="search($event)"></lb-search-form>
+      </div>
+      <div class="search-results">
+        <ng-container *ngIf="!(isApiIinProgress$ | async); else spinner">
+          <lb-search-results
+                  *ngIf="searchMovieResponse"
+                  [configuration]="configuration"
+                  [movies]="searchMovieResponse.results">
+          </lb-search-results>
+        </ng-container>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Bulk Search">Bulk Search</mat-tab>
+</mat-tab-group>
+
+<ng-template #spinner>
+  <div class="spinner"><mat-spinner [strokeWidth]="8" [diameter]="50"></mat-spinner></div>
+</ng-template>

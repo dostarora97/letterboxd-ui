@@ -1,0 +1,8 @@
+<form #searchForm="ngForm" (ngSubmit)="onSubmit()" class="movie-name-form">
+  <mat-form-field>
+    <mat-label>Movie Name</mat-label>
+    <input #movieName="ngModel" [(ngModel)]="movie" id="movie-name" name="movie-name" class="form-control" type="text" required matInput>
+  </mat-form-field>
+  <div class="separator"></div>
+  <button mat-raised-button class="search-btn" type="submit" [disabled]="!searchForm.form.valid" color="primary">Search</button>
+</form>

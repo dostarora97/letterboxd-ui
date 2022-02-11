@@ -1,0 +1,23 @@
+:host {
+  .search {
+    background-color: hsl(0, 0%, 83%, 0.30);
+    //height: 557px;
+  }
+
+  .search-box {
+    padding: 15px 30px 0 30px;
+  }
+
+  .spinner {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+  }
+  ::ng-deep {
+    mat-ink-bar {
+      height: 4px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 - Add ripple effect when clicking on posters
-- SortBy functionality
+- SortBy dropdown
 - Export selected
 - Hover selection mouse pointer
 - hover text tooltip

@@ -28,7 +28,7 @@ export class SearchComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getConfiguration()
-      .pipe(takeUntil(this.isDestroyed$))
+      .pipe(takeUntil(this.componentIsDestroyed$))
       .subscribe(
       (configuration) => {this.configuration = configuration});
   }
@@ -39,7 +39,7 @@ export class SearchComponent extends BaseComponent implements OnInit {
     this.apiService.searchMovie(searchRequest)
       .pipe(
         finalize(() => this.isApiIinProgress$.next(false)),
-        takeUntil(this.isDestroyed$))
+        takeUntil(this.componentIsDestroyed$))
       .subscribe(
         (response: SearchMovieResponse) => {
           this.onComplete(response)

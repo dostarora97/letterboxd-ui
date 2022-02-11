@@ -1,5 +1,5 @@
 <div *ngIf="movieSelections.length > 0 && configuration; else emptySelection" class="scrolling-wrapper">
-  <section *ngFor="let movie of movieSelections" class="card" (click)="toggleMovieSelection(movie)" [ngClass]="{'selected': movie.isSelected}">
+  <section *ngFor="let movie of movieSelections" class="card" (click)="toggleSelection(movie)" [ngClass]="{'selected': movie.isSelected}">
     <article id="{{movie.id}}">
       <div class="card-header">
         <div class="mainInfo">
@@ -21,6 +21,7 @@
       <div class="content">
         <img class="poster"
              src="{{configuration.images.base_url}}{{posterSize.W500}}{{movie.poster_path}}"
+             alt="Poster for {{movie.title}}"
              width="250">
       </div>
     </article>

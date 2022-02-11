@@ -32,7 +32,7 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleMovieSelection(movie: MovieSelection): void {
+  toggleSelection(movie: MovieSelection): void {
     movie.isSelected = !movie.isSelected;
   }
 

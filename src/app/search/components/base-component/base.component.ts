@@ -7,10 +7,10 @@ import { Subject } from 'rxjs';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent implements OnDestroy {
-  protected isDestroyed$ = new Subject<boolean>();
+  protected componentIsDestroyed$ = new Subject<boolean>();
 
   ngOnDestroy() {
-    this.isDestroyed$.next(true);
-    this.isDestroyed$.complete();
+    this.componentIsDestroyed$.next(true);
+    this.componentIsDestroyed$.complete();
   }
 }
